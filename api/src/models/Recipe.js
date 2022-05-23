@@ -15,19 +15,25 @@ module.exports = sequelize => {
       allowNull: false,
       unique: true
     },
-    spoonacularScore: {
+    score: {
       type: DataTypes.DECIMAL,
       validate: {
         min: 0,
         max: 100
       }
     },
-    healthScore:{
+    healthscore:{
       type: DataTypes.DECIMAL,
       validate: {
         min: 0,
         max: 100
       }
+    },
+    steps: {
+      type: DataTypes.TEXT
+    },
+    image: {
+      type: DataTypes.TEXT
     },
     dishTypes: {
       type: DataTypes.ENUM('salad', 'lunch', 'main course', 'main dish', 'dinner', 'side dish', 'dessert', 'appetizer', 'bread', 'breakfast', 'soup', 'beverage', 'sauce', 'marinade', 'fingerfood', 'snack', 'drink'),

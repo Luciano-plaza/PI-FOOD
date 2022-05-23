@@ -1,10 +1,25 @@
 import './App.css';
+import React from 'react';
+import {Route, Routes} from 'react-router-dom'
+import Home from './Components/Home';
+import HomePage from './Components/HomePage';
+import RecipeDetail from './Components/RecipeDetail/RecipeDetail.jsx';
+import Form from './Components/Form/Form';
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>Henry Food</h1>
-    </div>
+    <Routes>
+        
+      <Route exact path="/" element={<Home/>}/>
+    
+      <Route path='/home' element={<HomePage/>}/>
+
+      <Route path="/home/recipeDetail/:id" element={<RecipeDetail/>}/>
+
+      <Route path="/createRecipe" element={<Form/>}/>
+
+    </Routes>
   );
 }
 

@@ -51,8 +51,8 @@ router.get('/types', async (req, res) => {
     }
 });
 
-router.post('/recipes', async (req, res) => {
-    const {title, summary, spoonacularScore, healthScore, dishTypes, steps, diets} = req.body
+router.post('/recipe', async (req, res) => {
+    const {title, summary, score, image, healthscore, dishTypes, steps, diets} = req.body
     await getDiets();
     
     try {
@@ -62,8 +62,9 @@ router.post('/recipes', async (req, res) => {
 
         const receta = await Recipe.create({
             title,
-            spoonacularScore,
-            healthScore,
+            image,
+            score,
+            healthscore,
             summary,
             dishTypes,
             steps
