@@ -8,10 +8,10 @@ export const Paginado = ({recipes, pageLimit, paginado}) => {
     }
 
     return (
-        <nav>
+        <nav className='Paginado'>
             <ul>
                 {arrPages && arrPages.map(index => (
-                    <button key={index} onClick={() => paginado(index)} >{index}</button>
+                    <button className='button' key={index} onClick={() => paginado(index)} >{index}</button>
                 ))}
             </ul>
         </nav>

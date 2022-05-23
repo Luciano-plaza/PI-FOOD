@@ -9,26 +9,27 @@ export default function Search() {
 
     function handleChange(e) {
         e.preventDefault()
-        setValue(e.target.value)        
+        setValue(e.target.value)
     }
     
     function handleSubmit(e) {
         e.preventDefault()
         dispatch(getRecipes(value))
+        setValue('')
+
     }
 
     return (
-        <div>
+        <div className="Search">
 
         <input type='text'
         autoComplete="off"
+        value={value}
         placeholder="Recipe..."
         onChange={e => handleChange(e)}
         />
-        <input type='submit' onClick={e => handleSubmit(e)}/>
+        <input type='submit' onClick={e => handleSubmit(e)} className='Button-Search'/>
 
         </div>
     )
 }
-
-// export default connect()(Search)

@@ -55,23 +55,23 @@ export default function HomePage() {
     }
 
     return (
-        <div>
+        <div className="Fondo">
             <div>
                 <NavBar/>
                 <Search/>
 
-                <button onClick={e => handleReset(e)}>Reset</button>
-                <select  onChange={e => handleSort(e)}>
+                <button onClick={e => handleReset(e)} className='Reset'>Reset</button>
+                <select  onChange={e => handleSort(e)} className='Selection-ALPH'>
                     <option value="asc"> A-Z </option>
                     <option value="desc"> Z-A </option>
                 </select>
 
-                <select onChange={e => handleScore(e)}>
+                <select onChange={e => handleScore(e)} className='Selection-SCORE'>
                     <option value="max">Max Score</option>
                     <option value="min">Min Score</option>
                 </select>
 
-                <select onChange={e => handleDiet(e)}>
+                <select onChange={e => handleDiet(e)} className='Selection-DIETS'>
                     <option value='AllDiets'>Todas las dietas</option>
                     <option value='gluten free'>gluten free</option>
                     <option value='dairy free'>dairy free</option>

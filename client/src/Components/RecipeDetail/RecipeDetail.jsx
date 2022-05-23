@@ -14,17 +14,16 @@ export default function RecipeDetail() {
   useEffect(() => {
     dispatch(getRecipesById(id))
   }, [dispatch, id])
-  // console.log(details[0].steps)
   
   return (
     <div>
       <NavBar/>
       {details.length > 0?
-        <div>
+        <div className='Details'>
           <h2>{details[0].title}</h2>
           
           <h4>Diets: {details[0].CREATED? details[0].diets.map(p => p+' '): details[0].Tipos[0].diets}</h4>
-          {console.log(details[0].steps[0])}
+
           <h4>Score: {details[0].score}</h4>
 
           <img src={details[0].image} alt={details[0].title}/>
@@ -44,7 +43,7 @@ export default function RecipeDetail() {
             }
           </ul>
         </div>
-      : <p>Loading...</p>}
+      : <p>Hubo un error</p>}
     </div>
   )
 }
