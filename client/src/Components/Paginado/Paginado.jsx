@@ -1,5 +1,5 @@
 import React from 'react'
-
+import s from './Paginado.module.css';
 export const Paginado = ({recipes, pageLimit, paginado}) => {
 
     const arrPages = [];
@@ -8,10 +8,10 @@ export const Paginado = ({recipes, pageLimit, paginado}) => {
     }
 
     return (
-        <nav className='Paginado'>
+        <nav>
             <ul>
                 {arrPages && arrPages.map(index => (
-                    <button className='button' key={index} onClick={() => paginado(index)} >{index}</button>
+                    <button key={index} onClick={() => paginado(index)} >{index}</button>
                 ))}
             </ul>
         </nav>

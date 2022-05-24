@@ -1,0 +1,32 @@
+.Card {
+    margin: 2em;
+    display: inline-flex;
+    width: 40%;
+    justify-content:space-between;
+    height: auto;
+    word-wrap: break-word;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.links {
+    text-decoration: none;
+}
+
+select {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 1px solid;
+    padding: .3em;
+    margin: 1em;
+    border-radius: 1.3em;
+}
+
+option {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Reset {
+    padding: 1em;
+    background-color: rgb(187, 120, 223);
+    border-radius: 1em;
+    border: 2px solid;
+}

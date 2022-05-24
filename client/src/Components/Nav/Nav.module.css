@@ -1,0 +1,13 @@
+
+.links {
+    padding: 1.5em;
+    border-radius: 1.4em;
+    border: solid black;
+    background-color:slategrey;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: inline-block;
+    text-decoration: none;
+    margin: 2em;
+    color: rgb(238, 231, 144);
+}
+

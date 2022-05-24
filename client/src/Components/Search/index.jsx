@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {getRecipes} from '../../Actions/index.js'
-import './Search.css'
+import s from './Search.module.css'
 
 export default function Search() {
     const dispatch = useDispatch()
@@ -16,19 +16,20 @@ export default function Search() {
         e.preventDefault()
         dispatch(getRecipes(value))
         setValue('')
+        if(getRecipes(value).length === 0) alert('No hay resultados para su búsqueda');
 
     }
 
     return (
-        <div className="Search">
+        <div >
 
-        <input type='text'
+        <input className={s.Search} type='text'
         autoComplete="off"
         value={value}
         placeholder="Recipe..."
-        onChange={e => handleChange(e)}
+        onChange={e => handleChange(e) }
         />
-        <input type='submit' onClick={e => handleSubmit(e)} className='Button-Search'/>
+        <input type='submit' onClick={e => handleSubmit(e)} className={s.Button_Search}/>
 
         </div>
     )

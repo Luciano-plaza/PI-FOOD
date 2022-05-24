@@ -2,7 +2,6 @@ const axios = require('axios');
 const { Router} = require('express');
 const {getAll, getDiets} = require('../Controllers/index')
 const {Recipe, Tipo} = require('../db.js');
-const {YOUR_API_KEY2} = process.env
 
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');

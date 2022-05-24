@@ -1,15 +1,15 @@
 import React from "react";
-import './Recipe.css'
+import s from './Recipe.module.css'
 
 export default function Recipes({title, image, diets, score}) {
 
     return(
-        <div className="card">
+        <div className={s.card}>
 
-            <h3>{title}</h3>
-            <img src={image} alt={title}/>
-            <h4>{score}</h4>
-            <div>{diets}</div>
+            <h3 className={s.title}>{title}</h3>
+            <img className={s.image} src={image} alt={title}/>
+            <p className={s.score}>Score: {score}</p>
+            <p className={s.dietas}>{diets}</p>
 
         </div>
     )

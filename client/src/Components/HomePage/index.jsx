@@ -6,6 +6,7 @@ import Recipes from "../Recipe/Recipe.jsx";
 import { Paginado } from "../Paginado/Paginado.jsx";
 import Search from '../Search/index.jsx';
 import { Link } from "react-router-dom";
+import s from './HomePage.module.css'
 
 export default function HomePage() {
     
@@ -60,18 +61,18 @@ export default function HomePage() {
                 <NavBar/>
                 <Search/>
 
-                <button onClick={e => handleReset(e)} className='Reset'>Reset</button>
-                <select  onChange={e => handleSort(e)} className='Selection-ALPH'>
+                <button onClick={e => handleReset(e)} className={s.Reset}>Reset</button>
+                <select  onChange={e => handleSort(e)}>
                     <option value="asc"> A-Z </option>
                     <option value="desc"> Z-A </option>
                 </select>
 
-                <select onChange={e => handleScore(e)} className='Selection-SCORE'>
+                <select onChange={e => handleScore(e)}>
                     <option value="max">Max Score</option>
                     <option value="min">Min Score</option>
                 </select>
 
-                <select onChange={e => handleDiet(e)} className='Selection-DIETS'>
+                <select onChange={e => handleDiet(e)}>
                     <option value='AllDiets'>Todas las dietas</option>
                     <option value='gluten free'>gluten free</option>
                     <option value='dairy free'>dairy free</option>
@@ -89,8 +90,8 @@ export default function HomePage() {
 
             {cards?.map(receta => {
                 return (
-                    <div key={receta.id}>
-                        <Link to={`recipeDetail/${receta.id}`}>
+                    <div key={receta.id} className={s.Card}>
+                        <Link to={`recipeDetail/${receta.id}`} className={s.links}>
                             <Recipes
                                 id={receta.id}
                                 title={receta.title}

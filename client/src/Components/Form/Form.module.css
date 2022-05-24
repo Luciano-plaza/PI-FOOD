@@ -1,0 +1,21 @@
+form {
+    background-color: antiquewhite;
+}
+
+input, textarea {
+    margin: .5em;
+    padding: .5em;
+    border-radius: 1em;
+}
+
+
+.divs {
+    display: flex;
+    justify-content: center;
+    background-position: 1em;
+}
+
+.danger {
+
+    color: red;
+}

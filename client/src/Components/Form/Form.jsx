@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../Nav";
 import {CreateRecipe, getDiets} from '../../Actions/index.js'
-import './Form.css'
+import s from './Form.module.css'
 
 function validate(state) {
     let errors = {}
@@ -13,8 +13,6 @@ function validate(state) {
         errors.score = 'Ingrese un número válido'
     } else if(!state.summary || state.summary.length < 20) {
         errors.summary = '20 caracteres mínimos'
-    // } else if(!state.image || state.image.toLowerCase().includes('jpeg') || !state.image.toLowerCase().includes('jpg')) {
-    //     errors.image = 'Solo se admiten imágenes de tipo JPEG o JPG'
     } else if(!state.steps || state.steps.length < 50) {
         errors.steps = '50 caracteres mínimos'
     } else if(state.healthscore < 1 || state.healthscore > 100 || !state.healthscore) {
@@ -45,11 +43,11 @@ export default function Form() {
         
     }, [dispatch])
     
-    
     function handleChange(e) {
         e.preventDefault();
         setState({...state,
             [e.target.name]:e.target.value
+
         });
         
         setError(validate({
@@ -82,7 +80,6 @@ export default function Form() {
             [e.target.name]:e.target.value
         }))
 
-        console.log(state)
         dispatch(CreateRecipe(state))
         alert('Se creó tu receta!!')
         setState({
@@ -103,46 +100,46 @@ export default function Form() {
 
             <form onSubmit={e => handleSubmit(e)}>
 
-                <div>
-                    <label>Name of Recipe: </label>
+                <div className={s.divs}>
+                    <p>Name of Recipe: </p>
                     <input type='text' autoComplete="off" placeholder="Recipe..."  value={state.title}
                         onChange={e => handleChange(e)} name='title'/>
-                    {error.title && (<span className="danger">{error.title}</span>)}
                 </div>
+                    {error.title && (<span className={s.danger}>{error.title}</span>)}
 
-                <div>
-                    <label>Score: </label>
+                <div className={s.divs}>
+                    <p>Score: </p>
                     <input type='number' autoComplete="off" placeholder="Score..." value={state.score}
                         onChange={e => handleChange(e)} name='score'/>
-                    {error.score && (<span className="danger">{error.score}</span>)}
                 </div>
+                    {error.score && (<span className={s.danger}>{error.score}</span>)}
 
-                <div>
+                <div className={s.divs}>
                     <p>Summary: </p>
-                    <textarea type='text' autoComplete="off" placeholder="Summary..."  value={state.summary}
+                    <input type='text' autoComplete="off" placeholder="Summary..."  value={state.summary}
                         onChange={e => handleChange(e)} name='summary'/>
-                    {error.summary && (<span className="danger">{error.summary}</span>)}
+                    {error.summary && (<span className={s.danger}>{error.summary}</span>)}
                 </div>
 
-                <div>
-                    <label>Image: </label>
+                <div className={s.divs}>
+                    <p>Image: </p>
                     <input type='url' autoComplete="off" placeholder="URL..."  value={state.image}
                         onChange={e => handleChange(e)} name='image'/>
-                    {error.image && (<span className="danger">{error.image}</span>)}
+                    {error.image && (<span className={s.danger}>{error.image}</span>)}
                 </div>
 
-                <div>
+                <div className={s.divs}>
                     <p>Steps: </p>
                     <textarea type='text' autoComplete="off" placeholder="Steps..."  value={state.steps}
                         onChange={e => handleChange(e)} name='steps'/>
-                    {error.steps && (<span className="danger">{error.steps}</span>)}
+                    {error.steps && (<span className={s.danger}>{error.steps}</span>)}
                 </div>
 
-                <div>
-                    <label>Healthscore: </label>
+                <div className={s.divs}>
+                    <p>Healthscore: </p>
                     <input type='number' autoComplete="off" placeholder="Healthscore..."  value={state.healthscore}
                         onChange={e => handleChange(e)} name='healthscore'/>
-                    {error.healthscore && (<span className="danger">{error.healthscore}</span>)}
+                    {error.healthscore && (<span className={s.danger}>{error.healthscore}</span>)}
                 </div>
 
                 <select onClick={e => handleDiets(e)}>
@@ -151,11 +148,9 @@ export default function Form() {
                         <option value={diet.diets} key={diet.diets}>{diet.diets}</option>
                         ))}
                 </select>
-                {error.diets && (<span className="danger">{error.diets}</span>)}
+                {error.diets && (<span className={s.danger}>{error.diets}</span>)}
                 
                 {Object.values(error).length === 0? <input type='submit'/> : <input type='submit' disabled/>}
-
-            </form>
 
             <ul>
                 {state.diets.map(e =>
@@ -165,6 +160,8 @@ export default function Form() {
                     </div>
                 )}
             </ul>
+            </form>
+
 
         </div>
     )

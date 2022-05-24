@@ -1,0 +1,14 @@
+
+.Search {
+    padding: 5px;
+    border-radius: 2em;
+    border: solid lightcoral;
+}
+
+.Button_Search {
+    margin-left: 1em;
+    border: 2px solid;
+    border-radius: 2em;
+    padding: 5px;
+    background-color:rgb(58, 221, 216);
+}

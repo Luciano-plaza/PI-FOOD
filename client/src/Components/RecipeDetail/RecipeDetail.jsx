@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import {getRecipesById} from '../../Actions/index.js'
 import NavBar from '../Nav'
-import './Recipe.css'
+import s from './Recipe.module.css'
 
 export default function RecipeDetail() {
   
@@ -19,7 +19,7 @@ export default function RecipeDetail() {
     <div>
       <NavBar/>
       {details.length > 0?
-        <div className='Details'>
+        <div className={s.Details}>
           <h2>{details[0].title}</h2>
           
           <h4>Diets: {details[0].CREATED? details[0].diets.map(p => p+' '): details[0].Tipos[0].diets}</h4>
@@ -32,7 +32,7 @@ export default function RecipeDetail() {
 
           <p>Summary: {details[0].summary.replace(/<[^>]+>/g, '')}</p>
 
-            <h5>Steps:</h5>
+            <h3>Steps:</h3>
           <ul>
             {details[0].steps?Array.isArray(details[0].steps)?details[0].steps.map(p => {
               return (
