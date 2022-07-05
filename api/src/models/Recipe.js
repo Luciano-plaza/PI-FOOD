@@ -15,6 +15,9 @@ module.exports = sequelize => {
       allowNull: false,
       unique: true
     },
+    weightWatcherSmartPoints: {
+      type: DataTypes.DECIMAL
+    },
     score: {
       type: DataTypes.DECIMAL,
       validate: {

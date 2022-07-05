@@ -14,11 +14,10 @@ export default function HomePage() {
     const recipes = useSelector (state => state.recipes);
     // const [loading, setLoading]= useState(false)
     const [page, setPage] = useState(1);
-    const [pageLimit, setPageLimit] = useState(9);
+    const [pageLimit] = useState(9);
     const LastIndex = page*pageLimit;
     const FirstIndex = LastIndex - pageLimit;
     const cards = recipes.slice(FirstIndex, LastIndex)
-    const [order, setOrder] = useState('')
     
     const paginado = pageNumber => {
         setPage(pageNumber)
@@ -38,23 +37,20 @@ export default function HomePage() {
         e.preventDefault()
         setPage(1)
         dispatch(filterDiet(e.target.value))
-        setOrder(`Ordenado por ${e.target.value}`)
     }
 
     function handleSort(e) {
         e.preventDefault()
-        dispatch(orderAZ(e.target.value))
         setPage(1)
-        setOrder(`Ordenado pr ${e.target.value}`)
+        dispatch(orderAZ(e.target.value))
     }
     
     function handleScore(e) {
         e.preventDefault()
-        dispatch(orderScore(e.target.value))
         setPage(1)
-        setOrder(`Ordenado por ${e.target.value}`)
+        dispatch(orderScore(e.target.value))
     }
-
+    console.log(recipes)
     return (
         <div className="Fondo">
             <div>
@@ -74,7 +70,7 @@ export default function HomePage() {
 
                 <select onChange={e => handleDiet(e)}>
                     <option value='AllDiets'>Todas las dietas</option>
-                    <option value='gluten free'>gluten free</option>
+                    <option value='gluten free' name=''>gluten free</option>
                     <option value='dairy free'>dairy free</option>
                     <option value='lacto ovo vegetarian'>lacto ovo vegetarian</option>
                     <option value='vegan'>vegan</option>
@@ -97,7 +93,8 @@ export default function HomePage() {
                                 title={receta.title}
                                 image={receta.image}
                                 diets={receta.CREATED? receta.diets.map(p => p+' ') : receta.Tipos[0].diets}
-                                score={receta.score}
+                                score={receta.healthscore}
+                                minutos={receta.weightWatcherSmartPoints}
                             />
                         </Link>
                     </div>

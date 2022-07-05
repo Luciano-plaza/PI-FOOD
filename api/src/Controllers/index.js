@@ -2,13 +2,13 @@ const {Recipe, Tipo} = require('../db.js');
 const axios = require('axios');
 // const {YOUR_API_KEY} = process.env;
 const {YOUR_API_KEY2} = process.env
-// const respuesta = require('../../respuesta.json')
+const respuesta = require('../../respuesta.json')
 
 async function getAllData() {
-    const api = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY2}&addRecipeInformation=true&number=100`)
-    // const api = respuesta
+    // const api = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY2}&addRecipeInformation=true&number=100`)
+    const api = respuesta
     // PONER EL .DATA Y EL AWAIT PARA PETICIONES NORMALES
-    const receta = await api.data.results.map(element => {
+    const receta = api.results.map(element => {
         
         return {
             id:element.id,
@@ -17,6 +17,7 @@ async function getAllData() {
             image:element.image,
             diets:element.diets,
             CREATED:true,
+            weightWatcherSmartPoints:element.weightWatcherSmartPoints,
             score:element.spoonacularScore,
             healthscore:element.healthScore,
             summary:element.summary,
@@ -38,7 +39,7 @@ async function getAllDataDB() {
     })
     return infoDB
 };
-
+// console.log(getAllData())
 async function getAll() {
     const API = await getAllData()
     const BASE = await getAllDataDB()
@@ -48,10 +49,10 @@ async function getAll() {
 
 async function getDiets() {
 
-    const api = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY2}&addRecipeInformation=true&number=100`)
+    // const api = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY2}&addRecipeInformation=true&number=100`)
         // PONER EL .DATA Y EL AWAIT PARA PETICIONES NORMALES
-    // const api = respuesta
-    const PETICIONES = await api.data.results.map(a => a.diets);
+    const api = respuesta
+    const PETICIONES =  api.results.map(a => a.diets);
     const arrayDiets = [];
     PETICIONES.map(a => {
         for (var i = 0; i < a.length; i++) {

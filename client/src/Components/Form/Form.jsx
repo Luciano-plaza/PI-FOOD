@@ -64,7 +64,7 @@ export default function Form() {
         
         setError(validate({
             ...state,
-            [e.target.name]:e.target.value
+            [e.target.value]:e.target.value
         }))    
     };
 
@@ -79,19 +79,22 @@ export default function Form() {
             ...state,
             [e.target.name]:e.target.value
         }))
-
-        dispatch(CreateRecipe(state))
-        alert('Se creó tu receta!!')
-        setState({
-            title:'',
-            summary:'',
-            image:'',
-            steps:'',
-            score: 0,
-            healthscore: 0,
-            diets:[],
-            
-        })
+        if(Object.values(error).length) {
+            alert('No se pudo crear la receta')
+        } else {
+            dispatch(CreateRecipe(state))
+            alert('Se creó tu receta!!')
+            setState({
+                title:'',
+                summary:'',
+                image:'',
+                steps:'',
+                score: 0,
+                healthscore: 0,
+                diets:[],
+                
+            })
+        }
     }
 
     return (
@@ -150,7 +153,7 @@ export default function Form() {
                 </select>
                 {error.diets && (<span className={s.danger}>{error.diets}</span>)}
                 
-                {Object.values(error).length === 0? <input type='submit'/> : <input type='submit' disabled/>}
+                <input type='submit'/>
 
             <ul>
                 {state.diets.map(e =>

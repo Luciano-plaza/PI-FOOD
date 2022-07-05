@@ -1,7 +1,7 @@
 import React from "react";
 import s from './Recipe.module.css'
 
-export default function Recipes({title, image, diets, score}) {
+export default function Recipes({title, image, diets, score, minutos}) {
 
     return(
         <div className={s.card}>
@@ -10,6 +10,7 @@ export default function Recipes({title, image, diets, score}) {
             <img className={s.image} src={image} alt={title}/>
             <p className={s.score}>Score: {score}</p>
             <p className={s.dietas}>{diets}</p>
+            <p >minutos: {minutos}</p>
 
         </div>
     )

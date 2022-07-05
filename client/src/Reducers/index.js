@@ -58,29 +58,29 @@ const rootReducer = (state = inicialState, action) => {
 
           return {
             ...state,
-            recipes: order
+            recipes: [...order]
         }
 
         case 'ORDER_SCORE':
           let scoring = action.payload === "min"?
           state.recipes.sort((a, b) => {
             
-            if(a.score > b.score) return 1;
-            if(b.score > a.score) return -1;
+            if(a.healthscore > b.healthscore) return 1;
+            if(b.healthscore > a.healthscore) return -1;
             return 0;
 
           }) :
           state.recipes.sort((a, b) => {
             
-            if(a.score > b.score) return -1;
-            if(b.score > a.score) return 1;
+            if(a.healthscore > b.healthscore) return -1;
+            if(b.healthscore > a.healthscore) return 1;
             return 0;
 
           })
 
           return {
             ...state,
-            recipes: scoring
+            recipes: [...scoring]
           }
 
           case 'FILTER_DIET':
