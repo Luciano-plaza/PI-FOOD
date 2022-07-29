@@ -21,7 +21,7 @@ export default function Search() {
     }
 
     return (
-        <div >
+        <nav>
 
         <input className={s.Search} type='text'
         autoComplete="off"
@@ -31,6 +31,6 @@ export default function Search() {
         />
         <input type='submit' onClick={e => handleSubmit(e)} className={s.Button_Search}/>
 
-        </div>
+        </nav>
     )
 }

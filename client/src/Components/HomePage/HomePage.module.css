@@ -1,0 +1,17 @@
+body {
+    background: url('./Background-home.jpg') no-repeat fixed;
+}
+
+.PatherCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.Card {
+    margin: 1em;
+    width: 21em;
+    height: 22em;
+}

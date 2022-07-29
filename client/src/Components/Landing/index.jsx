@@ -4,10 +4,12 @@ import style from "./Home.module.css";
 
 export default function Home() {
   return (
-    <div className={style}>
-      <Link to="/home">
-        <h2>Bon Appétit</h2>
-      </Link>
+    <div className={style.background}>
+      <div className={style.container}>
+        <Link to="/home">
+          <h2 className={style.landing}>Bon Appétit</h2>
+        </Link>
+      </div>
     </div>
   );
 }

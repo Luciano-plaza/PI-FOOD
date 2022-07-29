@@ -1,0 +1,18 @@
+.modelCard {
+    background-color: lightgreen;
+    border-radius: 1em;
+    margin: 1em;
+    width: auto;
+    height: 100%;
+}
+
+
+.score {
+    padding: 5px;
+}
+
+.image {
+    width: 100%;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
