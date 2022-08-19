@@ -5,9 +5,9 @@ import style from "./Home.module.css";
 export default function Home() {
   return (
     <div className={style.background}>
-      <div className={style.container}>
+      <div className={style.div__landing__container}>
         <Link to="/home">
-          <h2 className={style.landing}>Bon Appétit</h2>
+          <div className={style.landing}>Bon Appétit</div>
         </Link>
       </div>
     </div>

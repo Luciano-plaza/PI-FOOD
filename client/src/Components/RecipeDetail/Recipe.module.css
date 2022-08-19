@@ -1,10 +1,31 @@
 
 .Details {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: aquamarine;
+    display: flex;
 }
 
-li {
-    display: flex;
-    justify-content: flex-start;
+.TitleDetails {
+    display: block;
+}
+
+.imageDetails {
+}
+
+.dietsDetails {
+    
+}
+
+.scoreDetails {
+    
+}
+
+.healthscore {
+    
+}
+
+.Summary {
+    display: block;
+}
+
+.stepsDetails {
+    display: block;
 }

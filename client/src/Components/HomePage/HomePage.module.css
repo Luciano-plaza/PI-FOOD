@@ -10,6 +10,19 @@ body {
     margin-bottom: 1em;
 }
 
+.Reset {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    background-color: rgb(255, 91, 91);
+    border-radius: 1em;
+    color: #000;
+    border: none;
+    margin: auto;
+    margin-top: .5em;
+    cursor: pointer;
+}
+
 .Card {
     margin: 1em;
     width: 21em;

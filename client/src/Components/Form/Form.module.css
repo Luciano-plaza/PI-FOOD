@@ -1,21 +1,12 @@
 form {
-    background-color: antiquewhite;
-}
-
-input, textarea {
-    margin: .5em;
-    padding: .5em;
-    border-radius: 1em;
-}
-
-
-.divs {
-    display: flex;
-    justify-content: center;
-    background-position: 1em;
+  background: antiquewhite;
+  display: block;
+  width: 70%;
+  height: auto;
+  margin: auto;
+  margin-top: 10%;
 }
 
 .danger {
-
-    color: red;
+  border: 1px solid red;
 }

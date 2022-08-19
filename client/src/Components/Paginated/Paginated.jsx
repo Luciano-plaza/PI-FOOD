@@ -1,20 +1,20 @@
 import React from "react";
-import style from "./Paginado.module.css";
-export const Paginado = ({ recipes, pageLimit, paginado }) => {
+import style from "./Paginated.module.css";
+export const Paginated = ({ recipes, pageLimit, paginated }) => {
   const arrPages = [];
   for (let i = 1; i <= Math.ceil(recipes / pageLimit); i++) {
     arrPages.push(i);
   }
 
   return (
-    <div>
-      <ul>
+    <div className={style.pagesContainer}>
+      <ul className={style.ULButtons}>
         {arrPages &&
           arrPages.map((index) => (
             <button
-              className={style.pages}
+              className={style.page}
               key={index}
-              onClick={() => paginado(index)}
+              onClick={() => paginated(index)}
             >
               {index}
             </button>

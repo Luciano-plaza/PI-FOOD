@@ -1,0 +1,15 @@
+.pagesContainer {
+    display: flex;
+    justify-content: center;
+    margin: .5em;
+}
+
+.page {
+    border-radius: .2em;
+    margin: .5em .2em;
+    padding: .5em 1em;
+    background-color: darkslategray;
+    border: none;
+    color: aliceblue;
+    cursor: pointer;
+}

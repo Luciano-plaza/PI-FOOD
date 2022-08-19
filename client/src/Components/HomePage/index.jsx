@@ -6,24 +6,23 @@ import {
   orderAZ,
   orderScore,
   filterDiet,
-} from "../../Actions/index.js";
+} from "../../Redux/Actions.js";
 import Recipes from "../Recipe/Recipe.jsx";
-import { Paginado } from "../Paginado/Paginado.jsx";
-import Search from "../Search/index.jsx";
+import { Paginated } from "../Paginated/Paginated.jsx";
 import { Link } from "react-router-dom";
 import style from "./HomePage.module.css";
 
 export default function HomePage() {
   const dispatch = useDispatch();
   const recipes = useSelector((state) => state.recipes);
-  // const [loading, setLoading]= useState(false)
+
   const [page, setPage] = useState(1);
   const [pageLimit] = useState(9);
   const LastIndex = page * pageLimit;
   const FirstIndex = LastIndex - pageLimit;
   const cards = recipes.slice(FirstIndex, LastIndex);
 
-  const paginado = (pageNumber) => {
+  const paginated = (pageNumber) => {
     setPage(pageNumber);
   };
 
@@ -58,11 +57,7 @@ export default function HomePage() {
     <div className="Fondo">
       <div>
         <NavBar />
-        <Search />
 
-        <button onClick={(e) => handleReset(e)} className={style.Reset}>
-          Reset
-        </button>
         <select onChange={(e) => handleSort(e)}>
           <option value="asc"> A-Z </option>
           <option value="desc"> Z-A </option>
@@ -88,11 +83,14 @@ export default function HomePage() {
           <option value="whole 30">whole 30</option>
         </select>
       </div>
+      <button onClick={(e) => handleReset(e)} className={style.Reset}>
+        Reset
+      </button>
 
-      <Paginado
+      <Paginated
         pageLimit={pageLimit}
         recipes={recipes.length}
-        paginado={paginado}
+        paginated={paginated}
       />
       <div className={style.PatherCards}>
         {cards?.map((receta) => {
