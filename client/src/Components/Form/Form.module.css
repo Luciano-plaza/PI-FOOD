@@ -1,12 +1,67 @@
-form {
-  background: antiquewhite;
-  display: block;
-  width: 70%;
-  height: auto;
-  margin: auto;
-  margin-top: 10%;
+:root {
+  --radio: 0.5rem;
 }
 
-.danger {
+form {
+  background: rgba(128, 128, 128, 0.9);
+  display: block;
+  width: 60%;
+  height: 90vh;
+  margin: auto;
+  border-radius: var(--radio);
+}
+
+.form__div,
+.form__leyend {
+  display: flex;
+  color: lightcyan;
+  justify-content: center;
+  margin: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.form__input__description {
+  min-width: 25rem;
+  max-width: 25rem;
+  min-height: 8rem;
+  max-height: 8rem;
+  border: none;
+  outline: none;
+}
+.form__danger {
   border: 1px solid red;
+  box-shadow: 0 0 10px 2px lightcoral;
+}
+
+.form__input,
+.form__input__description {
+  padding: 5px;
+  border-radius: var(--radio);
+}
+
+.form__input__URL {
+  width: 25rem;
+  padding: 0.5rem;
+  border-radius: var(--radio);
+}
+
+.form__select {
+  border-radius: var(--radio);
+  padding: 5px;
+  width: 10rem;
+  margin-left: 35%;
+}
+
+.form__option {
+  border-radius: 1px;
+}
+
+.form__btn {
+  background-color: lightgreen;
+  color: black;
+  font-weight: 600;
+  margin-left: 10%;
+  padding: 0.5rem;
+  border-radius: var(--radio);
+  cursor: pointer;
 }

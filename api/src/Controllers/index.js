@@ -46,25 +46,25 @@ async function getAll() {
   return API.concat(BASE);
 }
 
-// Solicito y filtro las dietas disponibles de las recetas para 
+// Solicito y filtro las dietas disponibles de las recetas para
 async function getDiets() {
   // const api = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY2}&addRecipeInformation=true&number=100`)
   // PONER EL .DATA Y EL AWAIT PARA PETICIONES NORMALES
   const api = respuesta;
   const PETICIONES = api.results.map((a) => a.diets);
-    return PETICIONES
-//   const arrayDiets = [];
-//   PETICIONES.map((a) => {
-//     for (var i = 0; i < a.length; i++) {
-//       arrayDiets.push(a[i]);
-//     }
-//   });
-//   const dietList = [...new Set(arrayDiets)];
-//   for (let i = 0; i < dietList.length; i++) {
-//     await Tipo.findOrCreate({
-//       where: { diets: dietList[i] },
-//     });
-//   }
+  const arrayDiets = [];
+  PETICIONES.map((a) => {
+    for (var i = 0; i < a.length; i++) {
+      arrayDiets.push(a[i]);
+    }
+  });
+  const dietList = [...new Set(arrayDiets)];
+  for (let i = 0; i < dietList.length; i++) {
+    await Tipo.findOrCreate({
+      where: { diets: dietList[i] },
+    });
+  }
+  return dietList;
 }
 
 module.exports = {

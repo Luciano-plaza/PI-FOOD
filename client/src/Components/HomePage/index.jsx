@@ -10,7 +10,13 @@ import {
 import Recipes from "../Recipe/Recipe.jsx";
 import { Paginated } from "../Paginated/Paginated.jsx";
 import { Link } from "react-router-dom";
-import style from "./HomePage.module.css";
+import {
+  home__header__container,
+  home__reset,
+  home__cards__container,
+  home__card,
+  home__select,
+} from "./HomePage.module.css";
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -52,38 +58,38 @@ export default function HomePage() {
     setPage(1);
     dispatch(orderScore(e.target.value));
   }
-  console.log(recipes);
   return (
-    <div className="Fondo">
+    <div>
       <div>
         <NavBar />
+        <div className={home__header__container}>
+          <select onChange={(e) => handleSort(e)} className={home__select}>
+            <option value="asc"> A-Z </option>
+            <option value="desc"> Z-A </option>
+          </select>
 
-        <select onChange={(e) => handleSort(e)}>
-          <option value="asc"> A-Z </option>
-          <option value="desc"> Z-A </option>
-        </select>
+          <select onChange={(e) => handleScore(e)} className={home__select}>
+            <option value="max">Max Score</option>
+            <option value="min">Min Score</option>
+          </select>
 
-        <select onChange={(e) => handleScore(e)}>
-          <option value="max">Max Score</option>
-          <option value="min">Min Score</option>
-        </select>
-
-        <select onChange={(e) => handleDiet(e)}>
-          <option value="AllDiets">Todas las dietas</option>
-          <option value="gluten free" name="">
-            gluten free
-          </option>
-          <option value="dairy free">dairy free</option>
-          <option value="lacto ovo vegetarian">lacto ovo vegetarian</option>
-          <option value="vegan">vegan</option>
-          <option value="paleolithic">paleolithic</option>
-          <option value="primal">primal</option>
-          <option value="pescatarian">pescatarian</option>
-          <option value="fodmap friendly">fodmap friendly</option>
-          <option value="whole 30">whole 30</option>
-        </select>
+          <select onChange={(e) => handleDiet(e)} className={home__select}>
+            <option value="AllDiets">Todas las dietas</option>
+            <option value="gluten free" name="">
+              gluten free
+            </option>
+            <option value="dairy free">dairy free</option>
+            <option value="lacto ovo vegetarian">lacto ovo vegetarian</option>
+            <option value="vegan">vegan</option>
+            <option value="paleolithic">paleolithic</option>
+            <option value="primal">primal</option>
+            <option value="pescatarian">pescatarian</option>
+            <option value="fodmap friendly">fodmap friendly</option>
+            <option value="whole 30">whole 30</option>
+          </select>
+        </div>
       </div>
-      <button onClick={(e) => handleReset(e)} className={style.Reset}>
+      <button onClick={(e) => handleReset(e)} className={home__reset}>
         Reset
       </button>
 
@@ -92,10 +98,10 @@ export default function HomePage() {
         recipes={recipes.length}
         paginated={paginated}
       />
-      <div className={style.PatherCards}>
+      <div className={home__cards__container}>
         {cards?.map((receta) => {
           return (
-            <div key={receta.id} className={style.Card}>
+            <div key={receta.id} className={home__card}>
               <Link to={`recipeDetail/${receta.id}`}>
                 <Recipes
                   id={receta.id}

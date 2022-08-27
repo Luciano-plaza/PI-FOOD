@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getRecipes } from "../../Redux/Actions";
 import style from "./Search.module.css";
+import magnifying_glass from "./Search.svg"
 
 export default function Search() {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export default function Search() {
     if (getRecipes(value).length === 0)
       alert("No hay resultados para su búsqueda");
   }
-
+  
   return (
     <div className={style.SearchContainer}>
       <input
@@ -30,7 +31,7 @@ export default function Search() {
         onChange={(e) => handleChange(e)}
       />
       <div onClick={(e) => handleSubmit(e)} className={style.btn}>
-        A
+        <img src={magnifying_glass} alt="Search" />
       </div>
     </div>
   );

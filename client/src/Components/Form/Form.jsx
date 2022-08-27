@@ -2,7 +2,19 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../Nav";
 import { CreateRecipe, getDiets } from "../../Redux/Actions.js";
-import s from "./Form.module.css";
+import {
+  form__div,
+  form__leyend,
+  form__input,
+  form__input__description,
+  form__input__URL,
+  form__select,
+  form__diets__selected,
+  form__danger,
+  ul__delete,
+  ul__diet,
+  form__btn,
+} from "./Form.module.css";
 
 function validate(state) {
   let errors = {};
@@ -106,15 +118,15 @@ export default function Form() {
       });
     }
   }
-
   return (
     <div>
       <NavBar />
 
       <form onSubmit={(e) => handleSubmit(e)}>
-        <div className={s.divs}>
-          <p>Name of Recipe: </p>
+        <p className={form__leyend}>Name of Recipe: </p>
+        <div className={form__div}>
           <input
+            className={`${form__input} ${error.title ? form__danger : null}`}
             type="text"
             autoComplete="off"
             placeholder="Recipe..."
@@ -123,11 +135,11 @@ export default function Form() {
             name="title"
           />
         </div>
-        {error.title && <span className={s.danger}>{error.title}</span>}
 
-        <div className={s.divs}>
-          <p>Score: </p>
+        <p className={form__leyend}>Score: </p>
+        <div className={form__div}>
           <input
+            className={`${form__input} ${error.score ? form__danger : null}`}
             type="number"
             autoComplete="off"
             placeholder="Score..."
@@ -136,11 +148,13 @@ export default function Form() {
             name="score"
           />
         </div>
-        {error.score && <span className={s.danger}>{error.score}</span>}
 
-        <div className={s.divs}>
-          <p>Summary: </p>
-          <input
+        <p className={form__leyend}>Summary: </p>
+        <div className={form__div}>
+          <textarea
+            className={`${form__input__description} ${
+              error.summary ? form__danger : null
+            }`}
             type="text"
             autoComplete="off"
             placeholder="Summary..."
@@ -148,12 +162,14 @@ export default function Form() {
             onChange={(e) => handleChange(e)}
             name="summary"
           />
-          {error.summary && <span className={s.danger}>{error.summary}</span>}
         </div>
 
-        <div className={s.divs}>
-          <p>Image: </p>
+        <p className={form__leyend}>Image: </p>
+        <div className={form__div}>
           <input
+            className={`${form__input__URL} ${
+              error.image ? form__danger : null
+            }`}
             type="url"
             autoComplete="off"
             placeholder="URL..."
@@ -161,12 +177,14 @@ export default function Form() {
             onChange={(e) => handleChange(e)}
             name="image"
           />
-          {error.image && <span className={s.danger}>{error.image}</span>}
         </div>
 
-        <div className={s.divs}>
-          <p>Steps: </p>
+        <p className={form__leyend}>Steps: </p>
+        <div className={form__div}>
           <textarea
+            className={`${form__input__description} ${
+              error.steps ? form__danger : null
+            }`}
             type="text"
             autoComplete="off"
             placeholder="Steps..."
@@ -174,12 +192,14 @@ export default function Form() {
             onChange={(e) => handleChange(e)}
             name="steps"
           />
-          {error.steps && <span className={s.danger}>{error.steps}</span>}
         </div>
 
-        <div className={s.divs}>
-          <p>Healthscore: </p>
+        <p className={form__leyend}>Healthscore: </p>
+        <div className={form__div}>
           <input
+            className={`${form__input} ${
+              error.healthscore ? form__danger : null
+            }`}
             type="number"
             autoComplete="off"
             placeholder="Healthscore..."
@@ -187,12 +207,12 @@ export default function Form() {
             onChange={(e) => handleChange(e)}
             name="healthscore"
           />
-          {error.healthscore && (
-            <span className={s.danger}>{error.healthscore}</span>
-          )}
         </div>
 
-        <select onClick={(e) => handleDiets(e)}>
+        <select
+          onClick={(e) => handleDiets(e)}
+          className={`${form__select} ${error.diets ? form__danger : null}`}
+        >
           <option value="AllDiets">Diets</option>
           {dietas.map((diet) => (
             <option value={diet.diets} key={diet.diets}>
@@ -200,14 +220,17 @@ export default function Form() {
             </option>
           ))}
         </select>
-        {error.diets && <span className={s.danger}>{error.diets}</span>}
 
-        <input type="submit" />
+        <input type="submit" className={form__btn} value="Send"/>
 
-        <ul>
+        <ul className={form__diets__selected}>
           {state.diets.map((e) => (
-            <div key={e}>
-              <button onClick={(e) => handleDelete1(e)} value={e}>
+            <div key={e} className={ul__diet}>
+              <button
+                onClick={(e) => handleDelete1(e)}
+                value={e}
+                className={ul__delete}
+              >
                 X
               </button>
               <p>{e}</p>

@@ -2,7 +2,7 @@ body {
     background: url('./Background-home.jpg') no-repeat fixed;
 }
 
-.PatherCards {
+.home__cards__container {
     display: flex;
     flex-wrap: wrap;
     justify-content:space-evenly;
@@ -10,7 +10,7 @@ body {
     margin-bottom: 1em;
 }
 
-.Reset {
+.home__reset {
     display: flex;
     justify-content: center;
     padding: 1em;
@@ -23,8 +23,21 @@ body {
     cursor: pointer;
 }
 
-.Card {
+.home__card {
     margin: 1em;
     width: 21em;
     height: 22em;
+}
+
+.home__header__container {
+    position: absolute;
+    width: 40%;
+    top: .8rem;
+    left: 35%;
+}
+
+.home__select {
+    padding: .25rem .5rem;
+    margin: auto 1rem;
+    border-radius: .5rem;
 }

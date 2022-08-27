@@ -1,13 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import style from "./Home.module.css";
+import {
+  landing__container,
+  landing__div,
+  landing__btn,
+} from "./Home.module.css";
 
 export default function Home() {
   return (
-    <div className={style.background}>
-      <div className={style.div__landing__container}>
+    <div className={landing__container}>
+      <div className={landing__div}>
         <Link to="/home">
-          <div className={style.landing}>Bon Appétit</div>
+          <div className={landing__btn}>Bon Appétit</div>
         </Link>
       </div>
     </div>
