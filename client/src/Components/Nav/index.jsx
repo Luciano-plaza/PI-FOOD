@@ -7,7 +7,8 @@ export default function NavBar() {
   return (
     <nav
       className={`${
-        window.location.pathname === "/createRecipe"
+        window.location.pathname === "/createRecipe" ||
+        window.location.pathname.includes("recipeDetail")
           ? nav__without__search
           : null
       }`}

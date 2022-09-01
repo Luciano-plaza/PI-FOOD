@@ -1,31 +1,86 @@
-
-.Details {
-    display: flex;
+.details__container {
+  background-color: rgba(128, 128, 128, 0.9);
+  border-radius: 1rem;
+  width: 70%;
+  height: 50em;
+  margin: 2em 15%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 1em 1em;
+  grid-template-areas:
+    "title title title title"
+    "photo photo score healthscore"
+    "photo photo diets diets"
+    "photo photo summary summary"
+    "photo photo summary summary"
+    "steps steps steps steps"
+    "steps steps steps steps"
+    "steps steps steps steps";
+}
+.details__title {
+  text-align: center;
+  grid-area: title;
+  align-self: center;
+  font-size: 2.5rem;
+}
+.details__photo {
+  width: 90%;
+  height: 90%;
+  grid-area: photo;
+  object-fit: cover;
+  image-rendering: crisp-edges;
+  margin: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 .5rem lightcyan;
+  align-self: center;
+}
+.details__description {
+  grid-area: summary;
+  overflow-x: hidden;
+  font-size: 1.4rem;
+}
+.details__description span {
+  font-size: 1rem;
+}
+.details__healthscore {
+  grid-area: healthscore;
+}
+.details__score {
+  grid-area: score;
+}
+.details__list_diets {
+  grid-area: diets;
+}
+.details__list_diets span {
+  font-weight: 300;
+}
+.details__steps {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  grid-area: steps;
 }
 
-.TitleDetails {
-    display: block;
+.details__default__steps p {
+  padding: 5px;
+  margin-left: 4em;
 }
 
-.imageDetails {
+.details__steps ul p {
+  padding: 2px 5px;
 }
-
-.dietsDetails {
-    
-}
-
-.scoreDetails {
-    
-}
-
-.healthscore {
-    
-}
-
-.Summary {
-    display: block;
-}
-
-.stepsDetails {
-    display: block;
+.details__steps ul li,
+.details__steps h3,
+.details__default__steps,
+.details__list_diets,
+.details__list_diets span,
+.details__score,
+.details__score p,
+.details__description,
+.details__healthscore,
+.details__healthscore p,
+.details__description span,
+.details__title {
+  color: lightcyan;
 }

@@ -59,7 +59,6 @@ export default function HomePage() {
     setPage(1);
     dispatch(orderScore(e.target.value));
   }
-  console.log(recipes);
   return (
     <div>
       <div>
